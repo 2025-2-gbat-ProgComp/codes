@@ -1,9 +1,10 @@
 cpf = int (input("Digite o CPF: "))
 
-dv2 = cpf % 10
-cpf = cpf // 10
-dv1 = cpf % 10
-cpf = cpf // 10
+# Para CPF: ABCDEFGHIJK
+dv2 = cpf % 10    # Extrai K
+cpf = cpf // 10   # Torna o CPF = ABCDEFGHIJ
+dv1 = cpf % 10    # Extrai J
+cpf = cpf // 10   # Torna o CPF = ABCDEFGHI
 
 erro = False
 for dig in range(1, 3):
