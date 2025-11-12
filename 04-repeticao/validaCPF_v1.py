@@ -26,7 +26,7 @@ if dv_calc == dv1:
     while cpf > 0:
         soma += (cpf % 10)*index
         cpf //= 10
-        index += 1        
+        index += 1      
 
     dv_calc = ((soma * 10) % 11) % 10
     if dv_calc == dv2:
