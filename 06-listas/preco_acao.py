@@ -1,5 +1,6 @@
 
 # Date,Open,High,Low,Close,Adj Close,Volume
+# Data,abertura,valor_mais_alto,valor_mais_baixo,valor_fechamento,valor_ajustado,volume
 petr4 = '''2020-07-07,10.280000,10.310000,9.970000,9.990000,9.657706,43404900
 2020-07-08,10.080000,10.220000,10.040000,10.170000,9.831720,22038600
 2020-07-09,10.190000,10.240000,10.070000,10.200000,9.860722,23126900
@@ -253,12 +254,12 @@ Responda:
 
 1) Qual o preço médio de abertura dessa ação ao longo do período?
 
-2) Qual o volume negociado no período?
+2) Qual o volume total negociado no período?
 
 3) Qual o preço máximo de fechamento?
 
-4) Qual o dia de cotação mais alta no período?
+4) Qual o dia de preço mais alto no período?
 
-5) Qual o dia de menor cotação do período? 
+5) Qual o dia de menor preço do período? 
 
 '''
