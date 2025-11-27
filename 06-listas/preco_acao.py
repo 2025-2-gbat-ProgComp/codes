@@ -151,7 +151,6 @@ petr4 = '''2020-07-07,10.280000,10.310000,9.970000,9.990000,9.657706,43404900
 2021-02-10,10.690000,10.780000,10.550000,10.620000,10.463054,32311100
 2021-02-11,10.690000,10.770000,10.590000,10.640000,10.482759,14802200
 2021-02-12,10.620000,10.670000,10.470000,10.600000,10.443351,21744700
-2021-02-17,null,null,null,null,null,null
 2021-02-18,10.510000,10.610000,10.350000,10.350000,10.197046,44200800
 2021-02-19,10.350000,10.430000,10.230000,10.250000,10.098523,29277900
 2021-02-22,10.010000,10.020000,9.720000,9.780000,9.635468,67078100
@@ -249,17 +248,50 @@ petr4 = '''2020-07-07,10.280000,10.310000,9.970000,9.990000,9.657706,43404900
 2021-07-05,11.140000,11.170000,11.070000,11.080000,11.080000,11885700
 2021-07-06,11.050000,11.100000,11.000000,11.040000,11.040000,27221300'''
 
-''' 
-Responda:
-
-1) Qual o preço médio de abertura dessa ação ao longo do período?
-
-2) Qual o volume total negociado no período?
-
-3) Qual o preço máximo de fechamento?
-
-4) Qual o dia de preço mais alto no período?
-
-5) Qual o dia de menor preço do período? 
-
 '''
+Responda:
+1) Qual o preço médio de abertura dessa ação ao longo do período?
+2) Qual o volume total negociado no período?
+3) Qual o preço máximo de fechamento?
+4) Qual o dia de preço mais alto no período?
+5) Qual o dia de menor preço do período? 
+'''
+
+min_val = 1000000
+max_val = 0
+max_fechamento = 0
+soma_abertura = 0
+volume_total = 0
+
+
+l = petr4.split("\n")
+for linha in l:
+    colunas = linha.split(",")
+
+    data = colunas[0]
+    valor_abertura = float(colunas[1])
+    valor_mais_alto = float(colunas[2]) 
+    valor_mais_baixo = float(colunas[3]) 
+    valor_fechamento = float(colunas[4])
+    valor_ajustado = float(colunas[5])
+    volume = int(colunas[6])   
+    
+    soma_abertura += valor_abertura
+    volume_total += volume
+       
+    if valor_fechamento > max_fechamento:
+        max_fechamento = valor_fechamento
+
+    if valor_mais_alto > max_val:
+        max_val = valor_mais_alto
+        data_max_val = data
+
+    if valor_mais_baixo < min_val:
+        min_val = valor_mais_baixo
+        data_min_val = data
+            
+print (f"Media de abertura: R$ {soma_abertura/len(l):.2f}")        
+print (f"Volume Total: R$ {volume_total}")        
+print (f"Maior valor de fechamento: R$ {max_fechamento:.2f}")
+print (f"Dia de maior valor: {data_max_val}")
+print (f"Dia de menor valor: {data_min_val}")
