@@ -21,9 +21,21 @@ bigchars = [
 # Gere o nome em letras grandes
 
 # Exemplo para geração de uma letra grande (parcial)
-letra = 'A'
-for l in bigchars:
-    inicio = l.find('A')
-    fim =  l.rfind('A')
-    letra = l[inicio:fim+1]
-    print (letra)
+
+for letra in 'JANE':
+    menor_pos_letra = 100000
+    maior_pos_letra = -1
+
+    for linha in bigchars:
+        pos_ini_letra = linha.find(letra)
+        pos_fim_letra = linha.rfind(letra)
+
+        if pos_ini_letra < menor_pos_letra:
+            menor_pos_letra = pos_ini_letra
+        if pos_fim_letra > maior_pos_letra:
+            maior_pos_letra = pos_fim_letra
+            
+            
+    for linha in bigchars:
+        parte_letra = linha[menor_pos_letra:maior_pos_letra+1]
+        print (parte_letra)
